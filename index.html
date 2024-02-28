@@ -1,38 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="Pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./styles.css" />
+		<title>Decripter</title>
+	</head>
+	<body>
+		<nav>LOGO</nav>
+		<div class="main">
+			<h1>Hello World!</h1>
+			<div class="container">
+				<div class="entrada-texto">
+					<textarea
+                        name="entrada"
+                        id="entrada"
+                        cols="30"
+                        placeholder="Digite o texto aqui"
+                        >Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Tenetur, accusamus quasi ipsam, culpa, exercitationem
+                        consectetur excepturi eius neque amet voluptatibus provident
+                        pariatur reprehenderit? Ullam eius explicabo, unde
+                        accusantium nihil quibusdam!</textarea>
+                        <div class="agrupador-botoes">
+                            <div class="botao">Criptografar</div>
+                            <div class="botao">Descriptografar</div>
+                            <div class="botao">Limpar</div>
+                        </div>
+				</div>
+                
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/styles/styles.css">
-
-    <title>Decodificador</title>
-</head>
-
-<body>
-    <header class="cabecalho">Logo</header>
-
-    <h1 class="titulo-principal">Decriptador de Mensagens</h1>
-
-    <main class="container">
-        
-        <section class="texto-entrada">
-            <textarea  id="mensagem" placeholder="Digite a mensagem cifrada"></textarea><
-            <button class="botao-criptografar">Criptografar</button>
-            <button class="botao-descriptografar">Descriptografar</button>
-            <button class="botao-limpar">Limpar</button>
-        </section>
-        
-        <section class="texto-saida">
-            <textarea></textarea>
-        </section>
-    
-    </main>
-    <footer>Desenvolvido por Leandro</footer>
-    <script src="./assets/js/main.js"></script>
-</body>
+				<div class="saida-texto">
+					<textarea
+                        name="saida"
+                        id="saida"
+                        cols="30"
+                        placeholder="Texto criptografado"
+                    >Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Tenetur, accusamus quasi ipsam, culpa, exercitationem
+					consectetur excepturi eius neque amet voluptatibus provident
+					pariatur reprehenderit? Ullam eius explicabo, unde
+					accusantium nihil quibusdam!</textarea>
+					
+				</div>
+			</div>
+		</div>
+		<footer>Desenvolvido por Leandro Goulart</footer>
+		<script src="./scripts.js"></script>
+	</body>
 </html>
