@@ -28,14 +28,15 @@ body {
     color: var(--cor-primaria);
 }
 
-.logoAlura {
-    margin: 1vw;
-    padding: 1vh;
-    width: 5%;
-    background-color: var(--cor-primaria);
-    position: absolute;
-    border-radius: 80% / 80%;
+.logoAlura,
+.logoOne  {
+    align-self:center ;
+    max-height: 100%;
+    height: 6vh;
+    margin-left: 2vw;
+    padding-top: 1vh;
 }
+
 
 .titulo-principal {
     font-family: var(--fonte-titulo);
@@ -43,7 +44,6 @@ body {
     font-style: normal;
     font-size: 4vw;
     padding: 1vw;
-    margin: 1vw;
     line-height: 150%;
     text-align: center;
 }
@@ -53,6 +53,8 @@ body {
     justify-content: center;
     padding: 0 15vw;
     gap: 5vw;
+    
+    min-height: 70vh; 
 }
 
 .texto-entrada {
@@ -62,13 +64,14 @@ body {
     padding: 2vw;
 }
 
-.area-texto {
+.area-texto-entrada {
     width: 100%;
     min-width: 20vh;
     border: none;
     border-radius: 2vw;
     text-align: justify;
     text-transform: lowercase;
+    color: var(--cor-primaria);
     background-color: transparent;
     padding: 1vh;
     margin: 0 3vh;
