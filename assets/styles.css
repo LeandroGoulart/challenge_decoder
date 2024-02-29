@@ -1,109 +1,72 @@
 * {
     margin: 0;
     padding: 0;
-    background-image: url(./images/background.jpg);
-    background-repeat: no-repeat;
-
+    background-color: aliceblue;
+    
     font-family: "Roboto Mono", monospace, sans-serif;
+    font-size: 22px;
 }
 
-html, body {
-    height: 100%;
-    font-size: 16px;
-    color: white;
+.logo{
+    margin-left: 10px;
+    padding-top: 10px;
+    width: 2%;
 }
 
-body {
+main{
+    display: flex;
+    margin-bottom: 50px;
+    margin-left: 80px;
+    align-items: center;
+}
     
-    
-    background-position: center;
-    background-size: cover;
-    
-    font-optical-sizing: auto; 
-    text-align: center;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between; 
-}
 
-.cabecalho{
-    width: 100%;
-    height: 50px;
-    padding: 15px;
-    background-color: rgb(59, 13, 13);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-titulo-principal {
+.titulo-principal{
     font-family: "Permanent Marker", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 80px;
-    margin:15rem; 
+    font-size: 50px;
+    line-height: 150%;
+    padding: 15px;
 }
 
 .container {
-    display: flex; 
-    align-items: center;
-    position: inherit;
-    justify-content: center;
-    
+   height: 76vh;
 }
 
-.texto-entrada {
-    width: 40rem; 
-    height: 35rem; 
-    margin: 0 5rem; 
-    background-color: white;
-    opacity: 0.25;
-    display: flex; 
+.text-area{
+    border: none;
+    margin-top: 90px;
+    text-transform: lowercase;
+}
+
+::placeholder {
+    color: white;
+    opacity: 0.5;
+    .text-area:focus {
+        outline: none;
+    }
+}
+
+.mensagem {
     flex-direction: column;
-    text-align: center; 
-    border: 2px dotted white;
+    text-align: center;
 }
 
-#mensagem {
-    width: 30rem; 
-    height: 20rem; 
-    margin: 5rem; 
-    background-color: rgb(0, 0, 0);
-    display: flex; 
-    justify-content: center; 
-    text-align: center; 
-    color : rgb(255, 255, 255);
-}
-
-.botao-criptografar, .botao-descriptografar, .botao-limpar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 6rem;
-    height: 2rem;
+.btn-criptografar, .btn-descriptografar, .btn-limpar, .btn-copiar {
+    width: 6.5rem;
+    height: 1.5rem;
     margin: 1rem;
     background-color: aquamarine;
     border: 2px dotted white;
     cursor: pointer;
     border-radius: 2rem;
+    font-size: 16px;
 }
 
-.texto-saida {
-    width: 30rem; 
-    height: 35rem; 
-    margin: 5rem; 
-    background-color: white;
-    opacity: 0.25;
-    display: flex; 
-    justify-content: center; 
-    text-align: center; 
-    border: 2px dotted white;
-}
 
 
 footer {
-    width: 100%;
     height: 30px; 
     background-color: black;
-    bottom: 0;
 }
