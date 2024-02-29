@@ -16,33 +16,37 @@
 
 <body>
     <header class="cabecalho">
-        <img src="./assets/images/logo.png" alt="Logo alura">
+        <img class="logoAlura" src="./assets/images/logo.png" alt="Logo alura">
     </header>
 
     
+    <h1 class="titulo-principal">Decriptador de Mensagens</h1>
     <main class="container">
-        <h1 class="titulo-principal">Decriptador de Mensagens</h1>
         
         <section class="texto-entrada">
-            <textarea  id="mensagem" cols="41" rows="4" placeholder="Digite a mensagem a ser cifrada"></textarea><
+            <textarea  class="area-texto" cols="62" rows="13" placeholder=".Digite a mensagem a ser cifrada"></textarea>
             
             <div class="informacao">
                 <h6>
-                    Apenas letras minúsculas e sem acentos
+                    *Apenas letras minúsculas e sem acentos
                 </h6>
             </div>
             
             <div class="botoes">
-                <button class="botao-criptografar">Criptografar</button>
-                <button class="botao-descriptografar">Descriptografar</button>
-                <button class="botao-limpar">Limpar</button>
+                <button class="btn-criptografar">Criptografar</button>
+                <button class="btn-descriptografar">Descriptografar</button>
+                <button class="btn-limpar">Limpar</button>
             </div>
 
         </section>
         
         <section class="texto-saida">
-            <textarea class="mensagem" cols="20" rows="10"> </textarea>
-            <button class="botao-copiar">Copiar</button>
+            <textarea class="mensagem" cols="12" rows="15">Mensagem não encontrada
+            </textarea>
+            <button class="btn-copiar">Copiar</button>
+            <div class="imagem-resposta">
+              
+            </div>
         </section>
     
     </main>

@@ -1,72 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+    --cor-primaria: #ffffff;
+    --cor-secundaria: #273454;
+    --cor-terciaria: #06060d;
+    --cor-hover: #a20e10;
+
+    --fonte-titulo: "Permanent Marker", cursive;
+    --fonte-primaria: "Red Hat Display", sans-serif;
+    --fonte-secundaria: "Red Hat Text", sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
-    background-color: aliceblue;
-    
-    font-family: "Roboto Mono", monospace, sans-serif;
-    font-size: 22px;
+    box-sizing: border-box;
 }
 
-.logo{
-    margin-left: 10px;
-    padding-top: 10px;
-    width: 2%;
+body {
+    height: 100%;
+    width: 100%;
+    font-family: var(--fonte-primaria);
+    background-image: url(/assets/images/background.jpg);
+    background-repeat: no-repeat;
+    background-size:cover; 
+    background-position: center;
+    color: var(--cor-primaria);
 }
 
-main{
-    display: flex;
-    margin-bottom: 50px;
-    margin-left: 80px;
-    align-items: center;
+.logoAlura {
+    margin: 1vw;
+    padding: 1vh;
+    width: 5%;
+    background-color: var(--cor-primaria);
+    position: absolute;
+    border-radius: 80% / 80%;
 }
-    
 
-.titulo-principal{
-    font-family: "Permanent Marker", cursive;
+.titulo-principal {
+    font-family: var(--fonte-titulo);
     font-weight: 400;
     font-style: normal;
-    font-size: 50px;
+    font-size: 4vw;
+    padding: 1vw;
+    margin: 1vw;
     line-height: 150%;
-    padding: 15px;
-}
-
-.container {
-   height: 76vh;
-}
-
-.text-area{
-    border: none;
-    margin-top: 90px;
-    text-transform: lowercase;
-}
-
-::placeholder {
-    color: white;
-    opacity: 0.5;
-    .text-area:focus {
-        outline: none;
-    }
-}
-
-.mensagem {
-    flex-direction: column;
     text-align: center;
 }
 
-.btn-criptografar, .btn-descriptografar, .btn-limpar, .btn-copiar {
-    width: 6.5rem;
-    height: 1.5rem;
-    margin: 1rem;
-    background-color: aquamarine;
-    border: 2px dotted white;
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 0 15vw;
+    gap: 5vw;
+}
+
+.texto-entrada {
+    width: 100%;
+    max-width: 60vw;
+    margin-bottom: 1vh;
+    padding: 2vw;
+}
+
+.area-texto {
+    width: 100%;
+    min-width: 20vh;
+    border: none;
+    border-radius: 2vw;
+    text-align: justify;
+    text-transform: lowercase;
+    background-color: transparent;
+    padding: 1vh;
+    margin: 0 3vh;
+    transition: background-color 0.3s ease;
+}
+
+.area-texto:focus {
+    background-color: var(--cor-secundaria);
+}
+
+.area-texto::placeholder {
+    color: var(--cor-primaria);
+    opacity: 0.5;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+}
+
+.informacao{
+    margin-left: 2vh;
+    padding: 1vh;
+}
+
+.btn-criptografar,
+.btn-descriptografar,
+.btn-limpar,
+.btn-copiar {
+    width: 10vw;
+    height: 5vh;
+    margin: 1vw;
+
+    background-color: var(--cor-secundaria);
+    border: 0.2vw solid white;
     cursor: pointer;
-    border-radius: 2rem;
-    font-size: 16px;
+    border-radius: 0.7vw;
+    font-size: 0.7vw;
+    color: var(--cor-primaria);
+    font-family: var(--fonte-secundaria);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+}
+
+.btn-criptografar:hover,
+.btn-descriptografar:hover,
+.btn-limpar:hover,
+.btn-copiar:hover {
+    background-color: var(--cor-hover);
+}
+
+.texto-saida {
+    width: 40%;
+    padding: 2vw 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+}
+
+.mensagem {
+    width: 100%;
+    border: none;
+    text-align: center;
+    border-radius: 1vw;
+    color: var(--cor-primaria);
+    background-color: transparent;
+    padding: 1vh;
+    margin-bottom: 1vh;
+}
+
+.mensagem:focus {
+    background-color: var(--cor-secundaria);
 }
 
 
+.imagem-resposta {
+    width: 30vh;
+    height: 30vh;
+    background-color: transparent;
+    background-image: url(/assets/images/imagem-nao-encontrada.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+}
 
 footer {
-    height: 30px; 
-    background-color: black;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: var(--cor-terciaria);
+    color: var(--cor-primaria);
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
 }
