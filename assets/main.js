@@ -87,3 +87,7 @@ function trocarImagemResposta(nomeImagem) {
         console.error('Imagem não encontrada:', nomeImagem);
     }
 }
+
+textoRecebido.addEventListener('click', function() {
+    mensagem.value = '';
+});
