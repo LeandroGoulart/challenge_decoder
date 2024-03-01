@@ -35,7 +35,7 @@ function criptografar(txt) {
     }
 function btnEncriptar(){
     const textoCriptografado = criptografar(textoRecebido.value);
-    mensagem.innerText = textoCriptografado;
+    mensagem.value = textoCriptografado;
     trocarImagemResposta('locked');
     textoRecebido.value = '';
 }
@@ -49,7 +49,7 @@ function decodificar(txt) {
 }
 function btnDecodificar(){
     const textoDecodificado = decodificar(textoRecebido.value);
-    mensagem.innerText = textoDecodificado;
+    mensagem.value = textoDecodificado;
     trocarImagemResposta('opened');
     textoRecebido.value = '';
 }
