@@ -1,75 +1,113 @@
-const textoEntrada = document.querySelector('.area-texto-entrada');
-const mensagem = document.querySelector('.mensagem');
+let textoRecebido = document.getElementById('campo-texto');
+let mensagem = document.getElementById('campo-mensagem');
+
 let matrizComandos = [
     ["a", "ai"],
     ["e", "enter"],
     ["i", "imes"],
     ["o", "ober"],
     ["u", "ufat"]
-];
-
-const imagensResposta [
-    
 ]
 
+const listaImagensResposta = [
+    { id: 1, name: "opened", src: "./assets/images/opened.jpg" },
+    { id: 2, name: "locked", src: "./assets/images/locked.jpg" },
+    { id: 3, name: "copy", src: "./assets/images/copy.png" },
+    { id: 4, name: "search", src: "./assets/images/search.jpg" }
+];
+
 // Função para criptografar o texto
-function criptografar(string) {
-    let msgEncriptada = string.toLowerCase();
-    for (let i = 0; i < matrizComandos.length; i++) {
-        msgEncriptada = msgEncriptada.replaceAll(matrizComandos[i][0], matrizComandos[i][1]);
+function criptografar(strEncriptada) {
+    let textoCriptografado = '';
+
+    for (let i = 0; i < strEncriptada.length; i++) {
+        let letraOriginal = strEncriptada[i];
+        let letraCriptografada = letraOriginal;
+
+        for (let j = 0; j < matrizComandos.length; j++) {
+            if (letraOriginal === matrizComandos[j][0]) {
+                letraCriptografada = matrizComandos[j][1];
+                break;
+            }
+        }
+
+        textoCriptografado += letraCriptografada;
     }
 
-    // Trocar a imagem
-    const enderecoImagem = "caminho/para/imagem.png";
-    trocarImagem(enderecoImagem);
+    return textoCriptografado;
+}
 
-    // Mudar o foco para a textarea "mensagem"
-    focusTextArea();
-
-    return msgEncriptada;
+function btnEncriptar(){
+    const textoCriptografado = criptografar(textoRecebido.value);
+    mensagem.innerText = textoCriptografado;
+    trocarImagemResposta('locked');
+    textoRecebido.value = '';
 }
 
 
 
-function descriptografar(string) {
-    let msgDecodificada = string.toLowerCase();
-    for (let i = 0; i < matrizComandos.length; i++) {
-        msgDecodificada = msgDecodificada.replaceAll(matrizComandos[i][1], matrizComandos[i][0]);
+// Função para decodificar o texto
+function decodificar(strDecodificada) {
+    let textoDecodificado = '';
+
+    for (let i = 0; i < strDecodificada.length; i++) {
+        let letraCriptografada = strDecodificada[i];
+        let letraDecodificada = letraCriptografada;
+
+        for (let j = 0; j < matrizComandos.length; j++) {
+            if (letraCriptografada === matrizComandos[j][1]) {
+                letraDecodificada = matrizComandos[j][0];
+                break;
+            }
+        }
+
+        textoDecodificado += letraDecodificada;
     }
-    
-    // Trocar a imagem
-    const enderecoImagem = "caminho/para/imagem.png";
-    trocarImagem(enderecoImagem);
 
-    // Mudar o foco para a textarea "mensagem"
-    focusTextArea();
-
-    return msgDecodificada;
+    return textoDecodificado;
 }
 
-function focusTextArea() {
-    const textareaMensagem = document.querySelector('.mensagem');
-    textareaMensagem.focus();
+function btnDecodificar(){
+    const textoDecodificado = decodificar(textoRecebido.value);
+    mensagem.innerText = textoDecodificado;
+    trocarImagemResposta('opened');
+    textoRecebido.value = '';
 }
+
+
 
 
 // Função para limpar o texto
 function limparTexto() {
-    textoEntrada.value = '';
+    textoRecebido.value = '';
     mensagem.value = 'Mensagem não encontrada';
+    trocarImagemResposta('search');
 }
 
 // Função para copiar o conteúdo da caixa de texto
 function copiarTexto() {
-    const mensagem = document.querySelector('.mensagem');
-    const texto = mensagem.value; // Obtém o texto da área de texto
+    const texto = mensagem.value;
 
     navigator.clipboard.writeText(texto)
         .then(() => {
-            alert('Texto copiado com sucesso!');
+            mensagem.value = 'Mensagem copiada!';
+            trocarImagemResposta('copy');
+            textoRecebido.value = '';
         })
         .catch((error) => {
             console.error('Erro ao copiar texto:', error);
             alert('Erro ao copiar texto. Por favor, tente novamente.');
         });
 }
+
+// Função para trocar a imagem de resposta
+function trocarImagemResposta(nomeImagem) {
+    const imagem = listaImagensResposta.find(img => img.name === nomeImagem);
+    if (imagem) {
+        const divImagemResposta = document.getElementById('imagem-resposta');
+        divImagemResposta.style.backgroundImage = `url(${imagem.src})`;
+    } else {
+        console.error('Imagem não encontrada:', nomeImagem);
+    }
+}
+
