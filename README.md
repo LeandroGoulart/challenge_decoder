@@ -1,4 +1,7 @@
-# Desafio de Criptografia e Decodificação
+# Desafio de Criptografia e Decodificação T6 ONE + ALURA
+
+![image](https://github.com/LeandroGoulart/challenge_decoder/assets/82618246/8ec8bc64-6d1d-4f9f-83f6-48158ac46192)
+
 
 Neste desafio, desenvolvemos um aplicativo simples para criptografar e decodificar mensagens usando uma matriz de comandos predefinida. O aplicativo permite que os usuários insiram uma mensagem, escolham entre criptografar ou decodificar e visualize o resultado. Além disso, oferece a funcionalidade de copiar o resultado para a área de transferência.
 
