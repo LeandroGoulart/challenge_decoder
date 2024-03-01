@@ -1,14 +1,24 @@
 let textoRecebido = document.getElementById('campo-texto');
 let mensagem = document.getElementById('campo-mensagem');
 
-let matrizComandos = [
-    ["a", "ai"],
-    ["e", "enter"],
-    ["i", "imes"],
-    ["o", "ober"],
-    ["u", "ufat"]
-]
+// Mapa de decodificação
+const encryptMap = {
+    "enter": "e",
+    "imes": "i",
+    "ai": "a",
+    "ober": "o",
+    "ufat": "u"
+  };
+  
+  const descryptMap = {
+    "a": "ai",
+    "e": "enter",
+    "i": "imes",
+    "o": "ober",
+    "u": "ufat"
+  };
 
+  //endereço da troca de imagem
 const listaImagensResposta = [
     { id: 1, name: "opened", src: "./assets/images/opened.jpg" },
     { id: 2, name: "locked", src: "./assets/images/locked.jpg" },
@@ -17,26 +27,12 @@ const listaImagensResposta = [
 ];
 
 // Função para criptografar o texto
-function criptografar(strEncriptada) {
-    let textoCriptografado = '';
-
-    for (let i = 0; i < strEncriptada.length; i++) {
-        let letraOriginal = strEncriptada[i];
-        let letraCriptografada = letraOriginal;
-
-        for (let j = 0; j < matrizComandos.length; j++) {
-            if (letraOriginal === matrizComandos[j][0]) {
-                letraCriptografada = matrizComandos[j][1];
-                break;
-            }
-        }
-
-        textoCriptografado += letraCriptografada;
+function criptografar(txt) {
+    for(const key in encryptMap) {
+        txt = txt.replace(encryptMap[key], key);
+      }
+     return txt;
     }
-
-    return textoCriptografado;
-}
-
 function btnEncriptar(){
     const textoCriptografado = criptografar(textoRecebido.value);
     mensagem.innerText = textoCriptografado;
@@ -44,38 +40,19 @@ function btnEncriptar(){
     textoRecebido.value = '';
 }
 
-
-
-// Função para decodificar o texto
-function decodificar(strDecodificada) {
-    let textoDecodificado = '';
-
-    for (let i = 0; i < strDecodificada.length; i++) {
-        let letraCriptografada = strDecodificada[i];
-        let letraDecodificada = letraCriptografada;
-
-        for (let j = 0; j < matrizComandos.length; j++) {
-            if (letraCriptografada === matrizComandos[j][1]) {
-                letraDecodificada = matrizComandos[j][0];
-                break;
-            }
-        }
-
-        textoDecodificado += letraDecodificada;
+// Função para decodificar
+function decodificar(txt) {
+    for(const key in descryptMap){
+        txt = txt.replace(descryptMap[key], key);
     }
-
-    return textoDecodificado;
+    return txt;
 }
-
 function btnDecodificar(){
     const textoDecodificado = decodificar(textoRecebido.value);
     mensagem.innerText = textoDecodificado;
     trocarImagemResposta('opened');
     textoRecebido.value = '';
 }
-
-
-
 
 // Função para limpar o texto
 function limparTexto() {
@@ -110,4 +87,3 @@ function trocarImagemResposta(nomeImagem) {
         console.error('Imagem não encontrada:', nomeImagem);
     }
 }
-
