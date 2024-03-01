@@ -1,60 +1,75 @@
-// Matriz de comandos para criptografar e descriptografar
-const matrizComandos = [
+const textoEntrada = document.querySelector('.area-texto-entrada');
+const mensagem = document.querySelector('.mensagem');
+let matrizComandos = [
     ["a", "ai"],
     ["e", "enter"],
     ["i", "imes"],
     ["o", "ober"],
     ["u", "ufat"]
 ];
-console.log(matrizComandos);
 
-// Função para criptografar uma string
+const imagensResposta [
+    
+]
+
+// Função para criptografar o texto
 function criptografar(string) {
-    let stringEncriptada = string.toLowerCase();
+    let msgEncriptada = string.toLowerCase();
     for (let i = 0; i < matrizComandos.length; i++) {
-        stringEncriptada = stringEncriptada.replaceAll(matrizComandos[i][0], matrizComandos[i][1]);
+        msgEncriptada = msgEncriptada.replaceAll(matrizComandos[i][0], matrizComandos[i][1]);
     }
-    return stringEncriptada;
+
+    // Trocar a imagem
+    const enderecoImagem = "caminho/para/imagem.png";
+    trocarImagem(enderecoImagem);
+
+    // Mudar o foco para a textarea "mensagem"
+    focusTextArea();
+
+    return msgEncriptada;
 }
 
-// Função para descriptografar uma string
+
+
 function descriptografar(string) {
-    let stringDescriptada = string.toLowerCase();
+    let msgDecodificada = string.toLowerCase();
     for (let i = 0; i < matrizComandos.length; i++) {
-        stringDescriptada = stringDescriptada.replaceAll(matrizComandos[i][1], matrizComandos[i][0]);
+        msgDecodificada = msgDecodificada.replaceAll(matrizComandos[i][1], matrizComandos[i][0]);
     }
-    return stringDescriptada;
+    
+    // Trocar a imagem
+    const enderecoImagem = "caminho/para/imagem.png";
+    trocarImagem(enderecoImagem);
+
+    // Mudar o foco para a textarea "mensagem"
+    focusTextArea();
+
+    return msgDecodificada;
 }
 
-// Função para limpar o texto de entrada e a área de saída
+function focusTextArea() {
+    const textareaMensagem = document.querySelector('.mensagem');
+    textareaMensagem.focus();
+}
+
+
+// Função para limpar o texto
 function limparTexto() {
-    const textoEntrada = document.querySelector('.area-texto-entrada');
-    const mensagem = document.querySelector('.mensagem');
     textoEntrada.value = '';
     mensagem.value = 'Mensagem não encontrada';
 }
 
-// Função para copiar o texto da área de saída para a área de transferência
+// Função para copiar o conteúdo da caixa de texto
 function copiarTexto() {
     const mensagem = document.querySelector('.mensagem');
-    mensagem.select();
-    document.execCommand('copy');
+    const texto = mensagem.value; // Obtém o texto da área de texto
+
+    navigator.clipboard.writeText(texto)
+        .then(() => {
+            alert('Texto copiado com sucesso!');
+        })
+        .catch((error) => {
+            console.error('Erro ao copiar texto:', error);
+            alert('Erro ao copiar texto. Por favor, tente novamente.');
+        });
 }
-
-// Adicionar eventos de clique aos botões de limpar e copiar
-document.querySelector('.btn-limpar').addEventListener('click', limparTexto);
-document.querySelector('.btn-copiar').addEventListener('click', copiarTexto);
-
-// Adicionar evento de clique ao botão de criptografar
-document.querySelector('.btn-criptografar').addEventListener('click', () => {
-    const textoEntrada = document.querySelector('.area-texto-entrada').value;
-    const mensagem = document.querySelector('.mensagem');
-    mensagem.value = criptografar(textoEntrada);
-});
-
-// Adicionar evento de clique ao botão de descriptografar
-document.querySelector('.btn-descriptografar').addEventListener('click', () => {
-    const textoEntrada = document.querySelector('.area-texto-entrada').value;
-    const mensagem = document.querySelector('.mensagem');
-    mensagem.value = descriptografar(textoEntrada);
-});

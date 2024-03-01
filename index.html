@@ -25,7 +25,7 @@
     <main class="container">
         
         <section class="texto-entrada">
-            <textarea  class="area-texto-entrada" cols="62" rows="13" placeholder=".Digite a mensagem a ser cifrada"></textarea>
+            <textarea  class="area-texto-entrada" cols="62" rows="7" placeholder=".Digite a mensagem a ser cifrada"></textarea>
             
             <div class="informacao">
                 <h6>
@@ -34,17 +34,17 @@
             </div>
             
             <div class="botoes">
-                <button class="btn-criptografar">Criptografar</button>
-                <button class="btn-descriptografar">Descriptografar</button>
-                <button class="btn-limpar">Limpar</button>
+                <button class="btn-criptografar" onclick="btn-criptografar">Criptografar</button>
+                <button class="btn-descriptografar" onclick="btn-descriptografar">Descriptografar</button>
+                <button class="btn-limpar" onclick="limparTexto()">Limpar</button>
             </div>
 
         </section>
         
         <section class="texto-saida">
-            <textarea class="mensagem" cols="12" rows="15">Mensagem não encontrada
+            <textarea class="mensagem" cols="12" rows="10">Mensagem não encontrada
             </textarea>
-            <button class="btn-copiar">Copiar</button>
+            <button class="btn-copiar" onclick="copiarTexto()">Copiar</button>
             <div class="imagem-resposta">
               
             </div>
